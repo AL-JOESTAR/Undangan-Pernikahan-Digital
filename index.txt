@@ -1318,93 +1318,6 @@
     initCountdown();
     initReveal();
     initNav();
-    setTimeout(() => startAutoScroll(), 600);
-  }
-
-  // ---- AUTO SCROLL ----
-  let autoScrollActive = false;
-  let autoScrollRAF = null;
-  let autoScrollPos = 0;
-  const AUTO_SCROLL_SPEED = 0.6; // px per frame (semakin besar semakin cepat)
-
-  function startAutoScroll() {
-    // Mulai dari posisi section #doa
-    const doaEl = document.getElementById('doa');
-    if (!doaEl) return;
-    autoScrollPos = doaEl.offsetTop;
-    window.scrollTo({ top: autoScrollPos, behavior: 'smooth' });
-
-    // Tunggu sebentar setelah scroll ke #doa, lalu mulai auto-scroll
-    setTimeout(() => {
-      autoScrollActive = true;
-      autoScrollStep();
-    }, 1000);
-
-    // Hentikan auto-scroll jika user scroll manual
-    let lastUserScroll = 0;
-    window.addEventListener('wheel', stopAutoScrollByUser, { passive: true });
-    window.addEventListener('touchstart', stopAutoScrollByUser, { passive: true });
-    window.addEventListener('keydown', (e) => {
-      const keys = ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '];
-      if (keys.includes(e.key)) stopAutoScrollByUser();
-    });
-  }
-
-  function autoScrollStep() {
-    if (!autoScrollActive) return;
-
-    const maxScroll = document.body.scrollHeight - window.innerHeight;
-    if (autoScrollPos >= maxScroll) {
-      autoScrollActive = false;
-      return;
-    }
-
-    autoScrollPos += AUTO_SCROLL_SPEED;
-    window.scrollTo(0, autoScrollPos);
-    autoScrollRAF = requestAnimationFrame(autoScrollStep);
-  }
-
-  function stopAutoScrollByUser() {
-    if (!autoScrollActive) return;
-    autoScrollActive = false;
-    if (autoScrollRAF) cancelAnimationFrame(autoScrollRAF);
-
-    // Tampilkan tombol resume scroll
-    showScrollResumeBtn();
-  }
-
-  function showScrollResumeBtn() {
-    if (document.getElementById('resume-scroll-btn')) return;
-    const btn = document.createElement('button');
-    btn.id = 'resume-scroll-btn';
-    btn.innerHTML = '▶ Auto Scroll';
-    btn.style.cssText = `
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999;
-      background: rgba(44,30,21,0.85);
-      border: 1px solid #C9A96E;
-      color: #C9A96E;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.65rem 1.2rem;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
-      transition: all 0.3s ease;
-      border-radius: 2px;
-    `;
-    btn.onmouseenter = () => { btn.style.background = '#C9A96E'; btn.style.color = '#2C1E15'; };
-    btn.onmouseleave = () => { btn.style.background = 'rgba(44,30,21,0.85)'; btn.style.color = '#C9A96E'; };
-    btn.onclick = () => {
-      autoScrollPos = window.scrollY;
-      autoScrollActive = true;
-      autoScrollStep();
-      btn.remove();
-    };
-    document.body.appendChild(btn);
   }
 
   // ---- COUNTDOWN ----
@@ -1478,7 +1391,7 @@
 </script>
 
 <audio id="bg-music" loop>
-  <source src="Lana.mp3" type="audio/mpeg">
+  <source src="payung_teduh.mp3" type="audio/mpeg">
 </audio>
 
 </body>
