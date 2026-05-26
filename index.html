@@ -458,6 +458,13 @@
     transition: transform 0.6s ease;
   }
 
+  .gallery-ph-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
   .gallery-item:hover .gallery-ph-inner { transform: scale(1.05); }
 
   .g1 { background: linear-gradient(135deg, #2C1E15, #5C4033); }
@@ -1089,6 +1096,7 @@
       <div class="gallery-item">
         <div class="gallery-ph">
           <div class="gallery-ph-inner g1">
+            <!-- foto 1 -->
             <img src="2.jpeg">
           </div>
         </div>
@@ -1096,31 +1104,36 @@
       </div>
       <div class="gallery-item">
         <div class="gallery-ph">
-          <div class="gallery-ph-inner g2"><img src="6.jpeg"></span></div>
+          <!-- foto 2 -->
+          <div class="gallery-ph-inner g2"><img src="3,1.jpeg"></div>
         </div>
         <div class="gallery-overlay"><span class="gallery-overlay-icon">✦</span></div>
       </div>
       <div class="gallery-item">
         <div class="gallery-ph">
-          <div class="gallery-ph-inner g3"><span class="g-num">03</span></div>
+          <!-- foto 3 -->
+          <div class="gallery-ph-inner g3"><img src="4.jpeg"></div>
         </div>
         <div class="gallery-overlay"><span class="gallery-overlay-icon">✦</span></div>
       </div>
       <div class="gallery-item">
         <div class="gallery-ph">
-          <div class="gallery-ph-inner g4"><span class="g-num">04</span></div>
+          <!-- foto 4 -->
+          <div class="gallery-ph-inner g4"><img src="5.2.jpeg"></div>
         </div>
         <div class="gallery-overlay"><span class="gallery-overlay-icon">✦</span></div>
       </div>
       <div class="gallery-item">
         <div class="gallery-ph">
-          <div class="gallery-ph-inner g5"><span class="g-num">05</span></div>
+          <!-- foto 5 -->
+          <div class="gallery-ph-inner g5"><img src="1.jpeg"></div>
         </div>
         <div class="gallery-overlay"><span class="gallery-overlay-icon">✦</span></div>
       </div>
       <div class="gallery-item">
         <div class="gallery-ph">
-          <div class="gallery-ph-inner g6"><span class="g-num">06</span></div>
+          <!-- foto 6 -->
+          <div class="gallery-ph-inner g6"><img src="6.1.jpeg"></div>
         </div>
         <div class="gallery-overlay"><span class="gallery-overlay-icon">✦</span></div>
       </div>
@@ -1171,7 +1184,7 @@
       </div>
     </div>
 
-    <a href="https://maps.google.com" target="_blank" class="maps-btn reveal reveal-delay-4">
+    <a href="https://maps.app.goo.gl/m6L6mTAW8cE7mDpi6?g_st=iw" target="_blank" class="maps-btn reveal reveal-delay-4">
       <span>⊕</span> Buka Google Maps
     </a>
   </section>
@@ -1186,18 +1199,18 @@
     <div class="gift-cards reveal reveal-delay-3">
       <div class="gift-card">
         <div class="gift-card-head">
-          <div class="gift-bank-logo logo-bca">BCA</div>
-          <div class="gift-bank-name">Bank Central Asia</div>
+          <div class="gift-bank-logo logo-bca">Dana</div>
+          <div class="gift-bank-name">Dana Uang Digital</div>
         </div>
         <div class="gift-row">
-          <span class="gift-field">No. Rekening</span>
-          <span class="gift-value" id="norek-bca">1234 5678 90</span>
+          <span class="gift-field">No. Telpon</span>
+          <span class="gift-value" id="norek-bca">0895-3757-94044</span>
         </div>
         <div class="gift-row">
           <span class="gift-field">Atas Nama</span>
-          <span class="gift-value">Muhammad Rizky F.</span>
+          <span class="gift-value">Melinda Putri Yana</span>
         </div>
-        <button class="gift-copy-btn" onclick="copyText('1234567890', 'No. Rekening BCA disalin!')">
+        <button class="gift-copy-btn" onclick="copyText('0895375794044', 'No. Rekening BCA disalin!')">
           ⊕ Salin Nomor Rekening
         </button>
       </div>
@@ -1292,7 +1305,7 @@
 
   // ---- COUNTDOWN ----
   function initCountdown() {
-    const target = new Date('2025-07-12T08:00:00');
+    const target = new Date('2026-06-06T10:00:00');
     function update() {
       const now = new Date();
       const diff = target - now;
@@ -1315,6 +1328,8 @@
     update();
     setInterval(update, 1000);
   }
+
+  initCountdown();
 
   // ---- REVEAL ON SCROLL ----
   function initReveal() {
