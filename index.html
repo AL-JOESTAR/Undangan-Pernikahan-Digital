@@ -1147,11 +1147,6 @@
         <div class="gallery-overlay"><span class="gallery-overlay-icon">✦</span></div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:2rem;" class="reveal reveal-delay-3">
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ivory);opacity:0.5;font-size:0.85rem;">
-        * Foto prewed dapat ditambahkan oleh pengantin
-      </p>
-    </div>
   </section>
 
   <!-- ACARA -->
@@ -1302,8 +1297,21 @@
   function openInvitation() {
     const cover = document.getElementById('cover');
     const main = document.getElementById('main');
+    const music = document.getElementById('bg-music'); // Pastikan variabel music didefinisikan di dalam sini
+    
     cover.classList.add('hidden');
-    setTimeout(() => { main.classList.add('visible'); initAll(); }, 800);
+    
+    // Putar musik tepat saat tombol diklik (Interaksi Pengguna)
+    if (music) {
+      music.play().catch(error => {
+        console.log("Autoplay diblokir oleh browser, memutar setelah interaksi lanjutan:", error);
+      });
+    }
+    
+    setTimeout(() => { 
+      main.classList.add('visible'); 
+      initAll(); 
+    }, 800);
   }
 
   function initAll() {
@@ -1379,6 +1387,12 @@
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2500);
   }
+
 </script>
+
+<audio id="bg-music" loop>
+  <source src="payung_teduh.mp3" type="audio/mpeg">
+</audio>
+
 </body>
 </html>
